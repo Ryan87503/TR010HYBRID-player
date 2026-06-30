@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChillGear TOYOTA TR 010 HYBRID Sound</title>
+    <link rel="stylesheet" href="./TR010.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="player-container">
+        
+        <div class="visual-space">
+            </div>
+
+        <canvas id="equalizer"></canvas>
+
+        <div class="controls-panel">
+            
+            <div class="progress-container">
+                <span id="currentTime" class="time-display">00:00</span>
+                <input type="range" id="progressBar" min="0" max="100" value="0">
+                <span id="durationTime" class="time-display">00:00</span>
+            </div>
+
+            <div class="main-buttons">
+                <button class="btn-nav"><i class="fas fa-backward"></i></button>
+                <button id="togglePlay" class="btn-main"><i class="fas fa-play" id="playIcon"></i></button>
+                <button class="btn-nav"><i class="fas fa-forward"></i></button>
+            </div>
+
+            <div class="volume-container">
+                <i class="fas fa-volume-down volume-icon"></i>
+                <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="0.7">
+                <i class="fas fa-volume-up volume-icon"></i>
+            </div>
+
+        </div>
+    </div>
+
+    <audio id="audioSource" src="./010.mp3" crossorigin="anonymous"></audio>
+
+    <script src="./TR010.js"></script>
+</body>
+</html>

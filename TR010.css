@@ -1,0 +1,161 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* 1080x1920 比例鎖定 */
+.player-container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 450px;
+    max-height: 800px;
+    
+    /* 🛠️ 【核心：在這裡插入你的背景圖片】 */
+    background-image: url('./010BG.jpg'); 
+    background-size: cover;       /* 確保圖片完美填滿整個手機框 */
+    background-position: center;  /* 圖片居中對齊 */
+    background-repeat: no-repeat; /* 防止圖片重複拼貼 */
+    
+    border: 1px solid #222;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* ⚠️ 注意：請把原本程式碼裡的 .player-container::before 全部的內容刪除或註解掉！ */
+/* 因為你已經有自己做的背景圖了，不需要再疊加測試用的網路噪點圖 */
+.player-container::before {
+    display: none; 
+}
+
+/* 網頁噪點微特效濾鏡 */
+.player-container::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    opacity: 0.04;
+    pointer-events: none;
+    background: url('https://images.unsplash.com/photo-1585314062340-f1a5a7c9328d?q=80&w=1000&auto=format&fit=crop');
+}
+
+/* 上方留白 */
+.visual-space {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 音波 Canvas 設定 */
+#equalizer {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 20px;
+}
+
+/* 控制面板 */
+.controls-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+    padding-bottom: 30px;
+}
+
+/* 進度條與音量條的通用自訂樣式（移除瀏覽器預設樣式） */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #555;
+    height: 4px;
+    border-radius: 2px;
+    outline: none;
+}
+
+/* 滑桿按鈕（那顆白點） */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ffffff;
+    cursor: pointer;
+    box-shadow: 0 0 8px rgba(255,255,255,0.5);
+}
+
+/* 進度條排版 */
+.progress-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.progress-container input[type="range"] {
+    flex: 1;
+}
+
+.time-display {
+    color: #888;
+    font-family: monospace;
+    font-size: 11px;
+}
+
+/* 核心按鈕區 */
+.main-buttons {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+button {
+    background: none;
+    border: none;
+    color: #ffffff;
+    cursor: pointer;
+    transition: transform 0.1s ease, opacity 0.2s;
+}
+
+button:active {
+    transform: scale(0.9);
+}
+
+.btn-nav {
+    font-size: 24px;
+    opacity: 0.7;
+}
+
+.btn-nav:hover { opacity: 1; }
+
+.btn-main {
+    font-size: 36px;
+}
+
+/* 音量控制區 */
+.volume-container {
+    width: 75%;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.volume-container input[type="range"] {
+    flex: 1;
+}
+
+.volume-icon {
+    color: #777;
+    font-size: 14px;
+}
